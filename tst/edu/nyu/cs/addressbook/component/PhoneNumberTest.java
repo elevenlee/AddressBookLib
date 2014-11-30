@@ -160,7 +160,7 @@ public class PhoneNumberTest {
     }
 
     /**
-     * Test method for {@link edu.nyu.cs.addressbook.component.PhoneNumber#compareTo(edu.nyu.cs.pqs.ps1.component.PhoneNumber)}.
+     * Test method for {@link edu.nyu.cs.addressbook.component.PhoneNumber#compareTo(edu.nyu.cs.addressbook.component.PhoneNumber)}.
      */
     @Test(expected = NullPointerException.class)
     public void testCompareToWithNullObject() {
@@ -168,7 +168,7 @@ public class PhoneNumberTest {
     }
     
     /**
-     * Test method for {@link edu.nyu.cs.addressbook.component.PhoneNumber#compareTo(edu.nyu.cs.pqs.ps1.component.PhoneNumber)}.
+     * Test method for {@link edu.nyu.cs.addressbook.component.PhoneNumber#compareTo(edu.nyu.cs.addressbook.component.PhoneNumber)}.
      */
     @Test
     public void testCompareToWithNotNullObject() {
