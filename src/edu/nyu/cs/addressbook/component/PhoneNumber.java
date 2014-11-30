@@ -75,8 +75,8 @@ public class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
      * comparison returns false, this method returns false. Otherwise it returns true when the iterations 
      * complete. 
      * <p>
-     * @param o the object to be compared for equality with this {@code PhoneNumber}
-     * @return true if the specified object is equal to this {@code PhoneNumber}.
+     * @param o the object to be compared for equality with this {@code PhoneNumber} object
+     * @return true if the specified object is equal to this {@code PhoneNumber} object
      */
     @Override
     public boolean equals(Object o) {
