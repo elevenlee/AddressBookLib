@@ -57,8 +57,7 @@ public class ParameterCheckerTest {
      */
     @Test
     public void testNullCheckWithNotNull() {
-        Object o = new Object();
-        ParameterChecker.nullCheck(o, "Not null value");
+        ParameterChecker.nullCheck(new Object(), "Not null value");
     }
 
     /**
