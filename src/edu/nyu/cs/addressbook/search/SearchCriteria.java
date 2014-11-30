@@ -1,4 +1,4 @@
-package edu.nyu.cs.addressbook.criteria;
+package edu.nyu.cs.addressbook.search;
 
 import edu.nyu.cs.addressbook.ContactEntry;
 
