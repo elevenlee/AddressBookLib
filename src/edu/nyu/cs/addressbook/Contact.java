@@ -12,7 +12,9 @@ import edu.nyu.cs.addressbook.utils.ParameterChecker;
  * <p>
  * The {@code Contact} class represents contact information.
  * <p>
- * TODO add factory method doc
+ * {@code Contact} object might be obtains by calls on {@link edu.nyu.cs.addressbook.ContactFactory#getContact(java.lang.String)}
+ * factory methods which will return the {@code Contact} object.
+ * <p>
  * {@code Contact} objects are not constant; their values can be changed after they are created. Because 
  * {@code Contact} objects are implemented by synchronized list they can be shared.
  */
