@@ -159,7 +159,7 @@ public class AndTest {
      */
     @Test
     public void testHashCode() {
-        assertEquals(152423857, andCriteria.hashCode());
+        assertEquals(1593212480, andCriteria.hashCode());
         assertEquals(528, noCriteria.hashCode());
     }
 
