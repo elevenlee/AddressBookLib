@@ -153,15 +153,6 @@ public class AndTest {
         assertFalse(noCriteria.equals(ac));
         assertFalse(ac.equals(noCriteria));
     }
-    
-    /**
-     * Test method for {@link edu.nyu.cs.addressbook.search.impl.And#hashCode()}.
-     */
-    @Test
-    public void testHashCode() {
-        assertEquals(1593212480, andCriteria.hashCode());
-        assertEquals(528, noCriteria.hashCode());
-    }
 
     /**
      * Test method for {@link edu.nyu.cs.addressbook.search.impl.And#toString()}.
