@@ -9,21 +9,214 @@ package edu.nyu.cs.addressbook.component.util;
  * objects are immutable they could be shared.
  */
 public enum State {
-    NONE("Select State"), DC("Washington, D.C."),
-    AL("Alabama"), AK("Alaska"), AZ("Arizona"), AR("Arkansas"),
-    CA("California"), CO("Colorado"), CT("Connecticut"),
-    DE("Delaware"), FL("Florida"), GA("Georgia"), HI("Hawaii"),
-    ID("Idaho"), IL("Illinois"), IN("Indiana"), IA("Iowa"),
-    KS("Kansas"), KY("Kentucky"), LA("Louisiana"),
-    ME("Maine"), MD("Maryland"), MA("Massachusetts"), MI("Michigan"),
-    MN("Minnesota"), MS("Mississippi"), MO("Missouri"), MT("Montana"),
-    NE("Nebraska"), NV("Nevada"), NH("New Hampshire"), NJ("New Jersey"),
-    NM("New Mexico"), NY("New York"), NC("North Carolina"), ND("North Dakota"),
-    OH("Ohio"), OK("Oklahoma"), OR("Oregon"), PA("Pennsylvania"),
-    RI("Rhode Island"), SC("South Carolina"), SD("South Dakota"),
-    TN("Tennessee"), TX("Texas"), UT("Utah"),
-    VT("Vermont"), VA("Virginia"),
-    WA("Washington"), WV("West Virginia"), WI("Wisconsin"), WY("Wyoming");
+    /**
+     * Select State, Default state option
+     */
+    NONE("Select State"), 
+    /**
+     * Washington, D.C.
+     */
+    DC("Washington, D.C."),
+    /**
+     * Alabama
+     */
+    AL("Alabama"), 
+    /**
+     * Alaska
+     */
+    AK("Alaska"), 
+    /**
+     * Arizona
+     */
+    AZ("Arizona"), 
+    /**
+     * Arkansas
+     */
+    AR("Arkansas"),
+    /**
+     * California
+     */
+    CA("California"), 
+    /**
+     * Colorado
+     */
+    CO("Colorado"), 
+    /**
+     * Connecticut
+     */
+    CT("Connecticut"),
+    /**
+     * Delaware
+     */
+    DE("Delaware"), 
+    /**
+     * Florida
+     */
+    FL("Florida"), 
+    /**
+     * Georgia
+     */
+    GA("Georgia"), 
+    /**
+     * Hawaii
+     */
+    HI("Hawaii"),
+    /**
+     * Idaho
+     */
+    ID("Idaho"), 
+    /**
+     * Illinois
+     */
+    IL("Illinois"), 
+    /**
+     * Indiana
+     */
+    IN("Indiana"), 
+    /**
+     * Iowa
+     */
+    IA("Iowa"),
+    /**
+     * Kansas
+     */
+    KS("Kansas"), 
+    /**
+     * Kentucky
+     */
+    KY("Kentucky"), 
+    /**
+     * Louisiana
+     */
+    LA("Louisiana"),
+    /**
+     * Maine
+     */
+    ME("Maine"), 
+    /**
+     * Maryland
+     */
+    MD("Maryland"), 
+    /**
+     * Massachusetts
+     */
+    MA("Massachusetts"), 
+    /**
+     * Michigan
+     */
+    MI("Michigan"),
+    /**
+     * Minnesota
+     */
+    MN("Minnesota"), 
+    /**
+     * Mississippi
+     */
+    MS("Mississippi"), 
+    /**
+     * Missouri
+     */
+    MO("Missouri"), 
+    /**
+     * Montana
+     */
+    MT("Montana"),
+    /**
+     * Nebraska
+     */
+    NE("Nebraska"), 
+    /**
+     * Nevada
+     */
+    NV("Nevada"), 
+    /**
+     * New Hampshire
+     */
+    NH("New Hampshire"), 
+    /**
+     * New Jersey
+     */
+    NJ("New Jersey"),
+    /**
+     * New Mexico
+     */
+    NM("New Mexico"), 
+    /**
+     * New York
+     */
+    NY("New York"), 
+    /**
+     * North Carolina
+     */
+    NC("North Carolina"), 
+    /**
+     * North Dakota
+     */
+    ND("North Dakota"),
+    /**
+     * Ohio
+     */
+    OH("Ohio"), 
+    /**
+     * Oklahoma
+     */
+    OK("Oklahoma"), 
+    /**
+     * Oregon
+     */
+    OR("Oregon"), 
+    /**
+     * Pennsylvania
+     */
+    PA("Pennsylvania"),
+    /**
+     * Rhode Island
+     */
+    RI("Rhode Island"), 
+    /**
+     * South Carolina
+     */
+    SC("South Carolina"), 
+    /**
+     * South Dakota
+     */
+    SD("South Dakota"),
+    /**
+     * Tennessee
+     */
+    TN("Tennessee"), 
+    /**
+     * Texas
+     */
+    TX("Texas"), 
+    /**
+     * Utah
+     */
+    UT("Utah"),
+    /**
+     * Vermont
+     */
+    VT("Vermont"), 
+    /**
+     * Virginia
+     */
+    VA("Virginia"),
+    /**
+     * Washington
+     */
+    WA("Washington"), 
+    /**
+     * West Virginia
+     */
+    WV("West Virginia"), 
+    /**
+     * Wisconsin
+     */
+    WI("Wisconsin"), 
+    /**
+     * Wyoming
+     */
+    WY("Wyoming");
     
     private final String description;
     
