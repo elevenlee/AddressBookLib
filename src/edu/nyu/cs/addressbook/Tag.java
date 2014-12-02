@@ -9,35 +9,16 @@ package edu.nyu.cs.addressbook;
  * objects are immutable they could be shared.
  */
 enum Tag {
-    ROOT("contact"),
-    ID("id"), ENTRY("entry"),
-    FIRSTNAME("first_name"), LASTNAME("last_name"), 
-    PHONE("phone"), AREACODE("area_code"), PREFIX("prefix"), LINENUMBER("line_number"),
-    EMAIL("email"), USERNAME("user_name"), DOMAIN("domain"),
-    ADDRESS("address"), ZIPCODE("zipcode"), STATE("state"), CITY("city"),STREET("street"),
-    NOTE("note");
-
-    private final String name;
+    CONTACT,
+    ID, ENTRY,
+    FIRST_NAME, LAST_NAME, 
+    PHONE, AREA_CODE, PREFIX, LINE_NUMBER,
+    EMAIL, USER_NAME, DOMAIN,
+    ADDRESS, ZIPCODE, STATE, CITY,STREET,
+    NOTE;
     
-    /**
-     * Initializes a newly created {@code Tag} object so that it records tag name information.
-     * <p>
-     * @param name the tag name
-     */
-    private Tag(String name) {
-        assert name != null;
-        
-        this.name = name;
-    }
-    
-    /**
-     * Return string representation of this {@code Tag} object. The string representation consists of the tag name.
-     * <p>
-     * @return string representation of this {@code Tag} object
-     */
-    @Override
-    public String toString() {
-        return name;
+    String tagName() {
+        return this.name().toLowerCase();
     }
     
 }

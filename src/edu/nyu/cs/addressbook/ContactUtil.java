@@ -75,17 +75,17 @@ public class ContactUtil {
             Element entryNode = (Element) entryNodes.item(i);
             ContactEntry ce =
                     new ContactEntry.ContactEntryBuilder(
-                            parseNode(entryNode, Tag.FIRSTNAME),
-                            parseNode(entryNode, Tag.LASTNAME)).build();
+                            parseNode(entryNode, Tag.FIRST_NAME),
+                            parseNode(entryNode, Tag.LAST_NAME)).build();
             
             NodeList phones = getNodeList(entryNode, Tag.PHONE);
             for (int j = 0; j < phones.getLength(); j++) {
                 Element phoneNode = (Element) phones.item(j);
                 PhoneNumber pn =
                         new PhoneNumber(
-                                Integer.parseInt(parseNode(phoneNode, Tag.AREACODE)),
+                                Integer.parseInt(parseNode(phoneNode, Tag.AREA_CODE)),
                                 Integer.parseInt(parseNode(phoneNode, Tag.PREFIX)),
-                                Integer.parseInt(parseNode(phoneNode, Tag.LINENUMBER)));
+                                Integer.parseInt(parseNode(phoneNode, Tag.LINE_NUMBER)));
                 ce.addPhoneNumber(pn);
             }
             
@@ -94,7 +94,7 @@ public class ContactUtil {
                 Element emailNode = (Element) emails.item(j);
                 EmailAddress ea =
                         new EmailAddress(
-                                parseNode(emailNode, Tag.USERNAME),
+                                parseNode(emailNode, Tag.USER_NAME),
                                 parseNode(emailNode, Tag.DOMAIN));
                 ce.addEmailAddress(ea);
             }
@@ -154,21 +154,21 @@ public class ContactUtil {
             e.printStackTrace();
         }
         Document document = db.newDocument();
-        Element rootNode = addNode(document, Tag.ROOT);
+        Element rootNode = addNode(document, Tag.CONTACT);
         addNode(document, rootNode, Tag.ID, c.getID());
         for (ContactEntry ce : c) {
             Element entryNode = addNode(document, rootNode, Tag.ENTRY);
-            addNode(document, entryNode, Tag.FIRSTNAME, ce.getFirstName());
-            addNode(document, entryNode, Tag.LASTNAME, ce.getLastName());
+            addNode(document, entryNode, Tag.FIRST_NAME, ce.getFirstName());
+            addNode(document, entryNode, Tag.LAST_NAME, ce.getLastName());
             for (PhoneNumber pn : ce.getPhoneNumbers()) {
                 Element phoneNode = addNode(document, entryNode, Tag.PHONE);
-                addNode(document, phoneNode, Tag.AREACODE, String.valueOf(pn.getAreaCode()));
+                addNode(document, phoneNode, Tag.AREA_CODE, String.valueOf(pn.getAreaCode()));
                 addNode(document, phoneNode, Tag.PREFIX, String.valueOf(pn.getPrefix()));
-                addNode(document, phoneNode, Tag.LINENUMBER, String.valueOf(pn.getLineNumber()));
+                addNode(document, phoneNode, Tag.LINE_NUMBER, String.valueOf(pn.getLineNumber()));
             }
             for (EmailAddress ea : ce.getEmailAddresses()) {
                 Element emailNode = addNode(document, entryNode, Tag.EMAIL);
-                addNode(document, emailNode, Tag.USERNAME, ea.getUsername());
+                addNode(document, emailNode, Tag.USER_NAME, ea.getUsername());
                 addNode(document, emailNode, Tag.DOMAIN, ea.getDomain());
             }
             for (PostalAddress pa : ce.getPostalAddresses()) {
@@ -205,7 +205,7 @@ public class ContactUtil {
      * to the {@code document} after this call returns
      */
     private static Element addNode(Document document, Tag tag) {
-        Element element = document.createElement(tag.toString());
+        Element element = document.createElement(tag.tagName());
         document.appendChild(element);
         return element;
     }
@@ -221,7 +221,7 @@ public class ContactUtil {
      */
     private static Element addNode(
             Document document, Element parentElement, Tag tag) {
-        Element element = document.createElement(tag.toString());
+        Element element = document.createElement(tag.tagName());
         parentElement.appendChild(element);
         return element;
     }
@@ -238,7 +238,7 @@ public class ContactUtil {
      */
     private static void addNode(
             Document document, Element parentElement, Tag tag, String nodeValue) {
-        Element element = document.createElement(tag.toString());
+        Element element = document.createElement(tag.tagName());
         parentElement.appendChild(element);
         Text text = document.createTextNode(nodeValue);
         element.appendChild(text);
@@ -252,7 +252,7 @@ public class ContactUtil {
      * @return node list by the specified {@link org.w3c.dom.Element} and {@link edu.nyu.cs.addressbook.Tag}
      */
     private static NodeList getNodeList(Element parentElement, Tag tag) {
-        return parentElement.getElementsByTagName(tag.toString());
+        return parentElement.getElementsByTagName(tag.tagName());
     }
     
     /**
@@ -267,7 +267,7 @@ public class ContactUtil {
      */
     private static String parseNode(Element parentElement, Tag tag) {
         NodeList nodes =
-                parentElement.getElementsByTagName(tag.toString());
+                parentElement.getElementsByTagName(tag.tagName());
         if (nodes.getLength() != 1) {
             throw new IllegalArgumentException(
                     "XML Parsing Error: illegal '" + tag + "' tag number");
@@ -290,7 +290,7 @@ public class ContactUtil {
      */
     private static String parseNode(Element parentElement, Tag tag, boolean trim) {
         NodeList nodes =
-                parentElement.getElementsByTagName(tag.toString());
+                parentElement.getElementsByTagName(tag.tagName());
         if (nodes.getLength() != 1) {
             throw new IllegalArgumentException(
                     "XML Parsing Error: illegal '" + tag + "' tag number");
