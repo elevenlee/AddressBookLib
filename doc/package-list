@@ -1,1 +1,7 @@
 edu.nyu.cs.addressbook
+edu.nyu.cs.addressbook.builder
+edu.nyu.cs.addressbook.component
+edu.nyu.cs.addressbook.component.util
+edu.nyu.cs.addressbook.search
+edu.nyu.cs.addressbook.search.impl
+edu.nyu.cs.addressbook.utils
