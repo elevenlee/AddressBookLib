@@ -16,6 +16,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.junit.After;
 import org.junit.Before;
@@ -443,9 +444,10 @@ public class ContactUtilTest {
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
      * @throws SAXException 
      * @throws ParserConfigurationException 
+     * @throws TransformerException 
      */
     @Test
-    public void testLoadWithLoadSaveEqual() throws SAXException, ParserConfigurationException {
+    public void testLoadWithLoadSaveEqual() throws SAXException, ParserConfigurationException, TransformerException {
         try {
             InputStream input =
                     new BufferedInputStream(
@@ -486,27 +488,30 @@ public class ContactUtilTest {
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#save(java.io.OutputStream, edu.nyu.cs.addressbook.Contact)}.
      * @throws ParserConfigurationException 
+     * @throws TransformerException 
      */
     @Test(expected = NullPointerException.class)
-    public void testSaveWithNullOutputStreamObject() throws ParserConfigurationException {
+    public void testSaveWithNullOutputStreamObject() throws ParserConfigurationException, TransformerException {
         ContactUtil.save(null, contact);
     }
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#save(java.io.OutputStream, edu.nyu.cs.addressbook.Contact)}.
      * @throws ParserConfigurationException 
+     * @throws TransformerException 
      */
     @Test(expected = NullPointerException.class)
-    public void testSaveWithNullContactObject() throws ParserConfigurationException {
+    public void testSaveWithNullContactObject() throws ParserConfigurationException, TransformerException {
         ContactUtil.save(out, null);
     }
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#save(java.io.OutputStream, edu.nyu.cs.addressbook.Contact)}.
      * @throws ParserConfigurationException 
+     * @throws TransformerException 
      */
     @Test
-    public void testSaveWithLegalObject() throws ParserConfigurationException {
+    public void testSaveWithLegalObject() throws ParserConfigurationException, TransformerException {
         ContactUtil.save(out, contact);
         File originFile = new File(TEST_FILES_ROOT + "output_test_origin.xml");
         File newFile = new File(TEST_FILES_ROOT + OUTPUT_FILE_NAME);
@@ -552,9 +557,10 @@ public class ContactUtilTest {
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#save(java.io.OutputStream, edu.nyu.cs.addressbook.Contact)}.
      * @throws ParserConfigurationException 
      * @throws SAXException 
+     * @throws TransformerException 
      */
     @Test
-    public void testSaveWithSaveLoadEqual() throws ParserConfigurationException, SAXException {
+    public void testSaveWithSaveLoadEqual() throws ParserConfigurationException, SAXException, TransformerException {
         Contact originContact = new Contact("Kevin");
         for (ContactEntry ce : contactEntryList) {
             originContact.add(ce);

@@ -8,7 +8,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -126,10 +125,9 @@ public class ContactUtil {
      * @return true if the specified {@link edu.nyu.cs.addressbook.Contact} writes to the specified output 
      * stream in XML format as a result of the call
      * @throws ParserConfigurationException a serious configuration error
-     * @throws TransformerConfigurationException a serious configuration error
      * @throws TransformerException an exceptional condition that occurred during the transformation process
      */
-    public static boolean save(OutputStream out, Contact c) throws ParserConfigurationException {
+    public static boolean save(OutputStream out, Contact c) throws ParserConfigurationException, TransformerException {
         ParameterChecker.nullCheck(out, "output stream");
         ParameterChecker.nullCheck(c, "contact");
         
@@ -164,16 +162,9 @@ public class ContactUtil {
         }
         
         TransformerFactory tf = TransformerFactory.newInstance();
-        Transformer transformer = null;
-        try {
-            transformer = tf.newTransformer();
-            transformer.transform(
-                    new DOMSource(document), new StreamResult(out));
-        } catch (TransformerConfigurationException e) {
-            e.printStackTrace();
-        } catch (TransformerException e) {
-            e.printStackTrace();
-        }
+        Transformer transformer = tf.newTransformer();
+        transformer.transform(
+                new DOMSource(document), new StreamResult(out));
         return true;
     }
     
