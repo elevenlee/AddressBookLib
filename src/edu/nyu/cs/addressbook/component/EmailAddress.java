@@ -117,9 +117,6 @@ public final class EmailAddress implements Cloneable, Comparable<EmailAddress> {
      * operation. 
      * <p>
      * @return a clone of this instance
-     * @throws CloneNotSupportedException if the object's class does not support the {@link java.lang.Cloneable}
-     * interface. Subclasses that override the clone method can also throw this exception to indicate that an 
-     * instance cannot be cloned.
      */
     @Override
     public EmailAddress clone() {
