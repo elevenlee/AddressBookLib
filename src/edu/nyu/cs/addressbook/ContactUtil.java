@@ -47,25 +47,12 @@ public class ContactUtil {
      * @throws IOException failed or interrupted I/O operations
      * @throws IllegalArgumentException if the XML file is ill format
      */
-    public static Contact load(InputStream in) {
+    public static Contact load(InputStream in) throws SAXException, IOException, ParserConfigurationException {
         ParameterChecker.nullCheck(in, "input stream");
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = null;
-        try {
-            db = dbf.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        }
-        Document document = null;
-        try {
-            document = db.parse(in);
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
+        DocumentBuilder db = dbf.newDocumentBuilder();
+        Document document = db.parse(in);
         Element rootNode = document.getDocumentElement();
         Contact contact =
                 ContactFactory.getContact(parseNode(rootNode, Tag.ID));
@@ -142,17 +129,12 @@ public class ContactUtil {
      * @throws TransformerConfigurationException a serious configuration error
      * @throws TransformerException an exceptional condition that occurred during the transformation process
      */
-    public static boolean save(OutputStream out, Contact c) {
+    public static boolean save(OutputStream out, Contact c) throws ParserConfigurationException {
         ParameterChecker.nullCheck(out, "output stream");
         ParameterChecker.nullCheck(c, "contact");
         
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = null;
-        try {
-            db = dbf.newDocumentBuilder();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        }
+        DocumentBuilder db = dbf.newDocumentBuilder();
         Document document = db.newDocument();
         Element rootNode = addNode(document, Tag.CONTACT);
         addNode(document, rootNode, Tag.ID, c.getID());

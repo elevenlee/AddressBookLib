@@ -15,9 +15,12 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.xml.sax.SAXException;
 
 import edu.nyu.cs.addressbook.component.EmailAddress;
 import edu.nyu.cs.addressbook.component.PhoneNumber;
@@ -103,17 +106,23 @@ public class ContactUtilTest {
 
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws IOException 
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = NullPointerException.class)
-    public void testLoadWithNullInputStreamObject() {
+    public void testLoadWithNullInputStreamObject() throws SAXException, IOException, ParserConfigurationException {
         ContactUtil.load(null);
     }
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws IOException 
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test
-    public void testLoadWithLegalObject() {
+    public void testLoadWithLegalObject() throws SAXException, IOException, ParserConfigurationException {
         Contact c = ContactUtil.load(in);
         Contact cWithNothing = ContactUtil.load(inWithNothing);
         assertEquals("Emily", c.getID());
@@ -146,9 +155,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalIDObject() {
+    public void testLoadWithIllegalIDObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -166,9 +177,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalFirstNameObject() {
+    public void testLoadWithIllegalFirstNameObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -186,9 +199,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalLastNameObject() {
+    public void testLoadWithIllegalLastNameObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -206,9 +221,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalAreaCodeObject() {
+    public void testLoadWithIllegalAreaCodeObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -226,9 +243,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalPrefixObject() {
+    public void testLoadWithIllegalPrefixObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -246,9 +265,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalLineNumberObject() {
+    public void testLoadWithIllegalLineNumberObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -266,9 +287,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalUsernameObject() {
+    public void testLoadWithIllegalUsernameObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -286,9 +309,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalDomainObject() {
+    public void testLoadWithIllegalDomainObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -306,9 +331,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalZipcodeObject() {
+    public void testLoadWithIllegalZipcodeObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -326,9 +353,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalStateObject() {
+    public void testLoadWithIllegalStateObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -346,9 +375,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalCityObject() {
+    public void testLoadWithIllegalCityObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -366,9 +397,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalStreetObject() {
+    public void testLoadWithIllegalStreetObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -386,9 +419,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test(expected = IllegalArgumentException.class)
-    public void testLoadWithIllegalNoteObject() {
+    public void testLoadWithIllegalNoteObject() throws SAXException, ParserConfigurationException {
         InputStream input;
         try {
             input = new BufferedInputStream(
@@ -406,9 +441,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#load(java.io.InputStream)}.
+     * @throws SAXException 
+     * @throws ParserConfigurationException 
      */
     @Test
-    public void testLoadWithLoadSaveEqual() {
+    public void testLoadWithLoadSaveEqual() throws SAXException, ParserConfigurationException {
         try {
             InputStream input =
                     new BufferedInputStream(
@@ -448,25 +485,28 @@ public class ContactUtilTest {
 
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#save(java.io.OutputStream, edu.nyu.cs.addressbook.Contact)}.
+     * @throws ParserConfigurationException 
      */
     @Test(expected = NullPointerException.class)
-    public void testSaveWithNullOutputStreamObject() {
+    public void testSaveWithNullOutputStreamObject() throws ParserConfigurationException {
         ContactUtil.save(null, contact);
     }
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#save(java.io.OutputStream, edu.nyu.cs.addressbook.Contact)}.
+     * @throws ParserConfigurationException 
      */
     @Test(expected = NullPointerException.class)
-    public void testSaveWithNullContactObject() {
+    public void testSaveWithNullContactObject() throws ParserConfigurationException {
         ContactUtil.save(out, null);
     }
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#save(java.io.OutputStream, edu.nyu.cs.addressbook.Contact)}.
+     * @throws ParserConfigurationException 
      */
     @Test
-    public void testSaveWithLegalObject() {
+    public void testSaveWithLegalObject() throws ParserConfigurationException {
         ContactUtil.save(out, contact);
         File originFile = new File(TEST_FILES_ROOT + "output_test_origin.xml");
         File newFile = new File(TEST_FILES_ROOT + OUTPUT_FILE_NAME);
@@ -510,9 +550,11 @@ public class ContactUtilTest {
     
     /**
      * Test method for {@link edu.nyu.cs.addressbook.ContactUtil#save(java.io.OutputStream, edu.nyu.cs.addressbook.Contact)}.
+     * @throws ParserConfigurationException 
+     * @throws SAXException 
      */
     @Test
-    public void testSaveWithSaveLoadEqual() {
+    public void testSaveWithSaveLoadEqual() throws ParserConfigurationException, SAXException {
         Contact originContact = new Contact("Kevin");
         for (ContactEntry ce : contactEntryList) {
             originContact.add(ce);
