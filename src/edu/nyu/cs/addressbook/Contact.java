@@ -19,7 +19,7 @@ import edu.nyu.cs.addressbook.utils.ParameterChecker;
  * {@code Contact} objects are implemented by synchronized list they can be shared.
  */
 public class Contact implements Iterable<ContactEntry>, Comparable<Contact> {
-    private final List<ContactEntry> contacts = Collections.synchronizedList(new LinkedList<>());;
+    private final List<ContactEntry> contacts = Collections.synchronizedList(new LinkedList<ContactEntry>());;
     private final String id;
     private volatile int hashCode;
     

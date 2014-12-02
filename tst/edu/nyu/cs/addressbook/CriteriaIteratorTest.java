@@ -52,14 +52,14 @@ public class CriteriaIteratorTest {
 						.emailAddress(new EmailAddress("howardw", "cs.nyu.edu"))
 						.note("I am a engineering in CIT.").build());
 		nonNullCriteriaIterator =
-				new SearchIterator<>(
+				new SearchIterator<SearchCriteria>(
 						contactEntryList.iterator(), NonNull.INSTANCE);
 		regexCriteriaIterator =
-				new SearchIterator<>(
+				new SearchIterator<SearchCriteria>(
 						contactEntryList.iterator(),
 						new Regex("[a-zA-Z0-9]+@[a-zA-Z]+\\.com"));
 		contactMatcherCriteriaIterator =
-				new SearchIterator<>(
+				new SearchIterator<SearchCriteria>(
 						contactEntryList.iterator(),
 						new ContactField.ContactFieldBuilder()
 								.areaCode(123).street("Avenue").build());
@@ -72,7 +72,7 @@ public class CriteriaIteratorTest {
 	public void testCriteriaIteratorWithNullIteratorObject() {
 		@SuppressWarnings("unused")
 		SearchIterator<SearchCriteria> iter =
-				new SearchIterator<>(null, NonNull.INSTANCE);
+				new SearchIterator<SearchCriteria>(null, NonNull.INSTANCE);
 	}
 	
 	/**
