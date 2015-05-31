@@ -24,8 +24,7 @@ public class PhoneNumberTest {
      */
     @Test
     public void testPhoneNumberWithLegalArgument() {
-        @SuppressWarnings("unused")
-        PhoneNumber pn = new PhoneNumber(123, 456, 7890);
+        new PhoneNumber(123, 456, 7890);
     }
     
     /**
@@ -33,8 +32,7 @@ public class PhoneNumberTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testPhoneNumberWithIllegalAreaCode() {
-        @SuppressWarnings("unused")
-        PhoneNumber pn = new PhoneNumber(1234, 456, 7890);
+        new PhoneNumber(1234, 456, 7890);
     }
     
     /**
@@ -42,8 +40,7 @@ public class PhoneNumberTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testPhoneNumberWithIllegalPrefix() {
-        @SuppressWarnings("unused")
-        PhoneNumber pn = new PhoneNumber(123, 4567, 7890);
+        new PhoneNumber(123, 4567, 7890);
     }
     
     /**
@@ -51,8 +48,7 @@ public class PhoneNumberTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testPhoneNumberWithIllegalLineNumber() {
-        @SuppressWarnings("unused")
-        PhoneNumber pn = new PhoneNumber(123, 456, 78900);
+        new PhoneNumber(123, 456, 78900);
     }
 
     /**

@@ -48,8 +48,7 @@ public class OrTest {
      */
     @Test
     public void testOrCriteriaWithLegalArgument() {
-        @SuppressWarnings("unused")
-        Or oc = new Or(
+        new Or(
                 NonNull.INSTANCE,
                 new Regex("^[0-9]+ [a-zA-Z]+\\n.*$"),
                 new ContactField.ContactFieldBuilder().zipCode(620).build());
@@ -60,8 +59,7 @@ public class OrTest {
      */
     @Test(expected = NullPointerException.class)
     public void testOrCriteriaWithNullObject() {
-        @SuppressWarnings("unused")
-        Or oc = new Or(
+        new Or(
                 NonNull.INSTANCE,
                 null,
                 new ContactField.ContactFieldBuilder().zipCode(620).build());

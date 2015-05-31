@@ -24,8 +24,7 @@ public class EmailAddressTest {
      */
     @Test
     public void testEmailAddressWithLegalArgument() {
-        @SuppressWarnings("unused")
-        EmailAddress ea = new EmailAddress("yunfeiyang4ever", "gmail.com");
+        new EmailAddress("yunfeiyang4ever", "gmail.com");
     }
     
     /**
@@ -33,8 +32,7 @@ public class EmailAddressTest {
      */
     @Test(expected = NullPointerException.class)
     public void testEmailAddressWithNullUsername() {
-        @SuppressWarnings("unused")
-        EmailAddress ea = new EmailAddress(null, "gmail.com");
+        new EmailAddress(null, "gmail.com");
     }
     
     /**
@@ -42,8 +40,7 @@ public class EmailAddressTest {
      */
     @Test(expected = NullPointerException.class)
     public void testEmailAddressWithNullDomain() {
-        @SuppressWarnings("unused")
-        EmailAddress ea = new EmailAddress("yunfeiyang4ever", null);
+        new EmailAddress("yunfeiyang4ever", null);
     }
     
     /**
@@ -51,8 +48,7 @@ public class EmailAddressTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testEmailAddressWitEmptyUsername() {
-        @SuppressWarnings("unused")
-        EmailAddress ea = new EmailAddress("    ", "gmail.com");
+        new EmailAddress("    ", "gmail.com");
     }
     
     /**
@@ -60,8 +56,7 @@ public class EmailAddressTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testEmailAddressWitEmptyDomain() {
-        @SuppressWarnings("unused")
-        EmailAddress ea = new EmailAddress("yunfeiyang4ever", "      ");
+        new EmailAddress("yunfeiyang4ever", "      ");
     }
 
     /**

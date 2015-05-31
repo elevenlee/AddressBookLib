@@ -48,8 +48,7 @@ public class AndTest {
      */
     @Test
     public void testAndCriteriaWithLegalArgument() {
-        @SuppressWarnings("unused")
-        And ac = new And(
+        new And(
                 NonNull.INSTANCE,
                 new Regex("^[0-9]+ [a-zA-Z]+\\n.*$"),
                 new ContactField.ContactFieldBuilder().zipCode(620).build());
@@ -60,8 +59,7 @@ public class AndTest {
      */
     @Test(expected = NullPointerException.class)
     public void testAndCriteriaWithNullObject() {
-        @SuppressWarnings("unused")
-        And ac = new And(
+        new And(
                 NonNull.INSTANCE,
                 null,
                 new ContactField.ContactFieldBuilder().zipCode(620).build());

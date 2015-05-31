@@ -70,9 +70,7 @@ public class CriteriaIteratorTest {
 	 */
 	@Test(expected = NullPointerException.class)
 	public void testCriteriaIteratorWithNullIteratorObject() {
-		@SuppressWarnings("unused")
-		SearchIterator<SearchCriteria> iter =
-				new SearchIterator<SearchCriteria>(null, NonNull.INSTANCE);
+	    new SearchIterator<SearchCriteria>(null, NonNull.INSTANCE);
 	}
 	
 	/**
@@ -80,9 +78,7 @@ public class CriteriaIteratorTest {
 	 */
 	@Test(expected = NullPointerException.class)
 	public void testCriteriaIteratorWithNullCriteriaObject() {
-		@SuppressWarnings("unused")
-		SearchIterator<SearchCriteria> iter =
-				new SearchIterator<>(contactEntryList.iterator(), null);
+	    new SearchIterator<>(contactEntryList.iterator(), null);
 	}
 
 	/**

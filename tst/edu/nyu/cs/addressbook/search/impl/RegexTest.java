@@ -28,8 +28,7 @@ public class RegexTest {
      */
     @Test
     public void testRegexCriteriaWithLegalObject() {
-        @SuppressWarnings("unused")
-        Regex rc = new Regex("^.* Street .*$");
+        new Regex("^.* Street .*$");
     }
     
     /**
@@ -37,8 +36,7 @@ public class RegexTest {
      */
     @Test(expected = NullPointerException.class)
     public void testRegexCriteriaWithNullObject() {
-        @SuppressWarnings("unused")
-        Regex rc = new Regex(null);
+        new Regex(null);
     }
     
     /**
@@ -46,8 +44,7 @@ public class RegexTest {
      */
     @Test(expected = IllegalArgumentException.class)
     public void testRegexCriteriaWithEmptyObject() {
-        @SuppressWarnings("unused")
-        Regex rc = new Regex("");
+        new Regex("");
     }
 
     /**

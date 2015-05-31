@@ -64,8 +64,7 @@ public class ContactTest {
      */
     @Test
     public void testContactWithLegalArgument() {
-        @SuppressWarnings("unused")
-        Contact c = new Contact("Leonard");
+        new Contact("Leonard");
     }
     
     /**
@@ -73,8 +72,7 @@ public class ContactTest {
      */
     @Test
     public void testContactWithNullObject() {
-        @SuppressWarnings("unused")
-        Contact c = new Contact(null);
+        new Contact(null);
     }
     
     /**
@@ -82,8 +80,7 @@ public class ContactTest {
      */
     @Test
     public void testContactWithEmptyObject() {
-        @SuppressWarnings("unused")
-        Contact c = new Contact("    ");
+        new Contact("    ");
     }
 
     /**
